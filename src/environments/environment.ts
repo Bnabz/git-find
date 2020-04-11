@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  token:"092ac5ce8ff7c9ab18fa2cd7e9404d3829104402"
+
 };
 
 /*

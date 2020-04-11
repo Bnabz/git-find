@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService }from '../profile-service/profile.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-my-profile',
@@ -7,11 +8,9 @@ import { ProfileService }from '../profile-service/profile.service';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  profile:any;
-  repos:any;
-  username:string;
+ user: User[];
 
-  constructor(private profileService:ProfileService){
+/*  constructor(private profileService:ProfileService){
   this.profileService.updateProfile(this.username);
   this.profileService.getProfileInfo().subscribe(profile => {
     this.profile = profile;
@@ -20,15 +19,24 @@ export class MyProfileComponent implements OnInit {
      this.repos = repos;
    });
 
-  }
+ }*/
 
+  getSearchedUser(searchTerm) {
+      this.service.searchMyUser(searchTerm).then(
+     (success) => {
+      this.user = this.service.user;
+      console.log(this.user);
+     },
+     (error) => {
+      console.log(error);
+    }
+      );
+  }
 
 
   ngOnInit(): void {
 
-    this.profileService.updateProfile('Bnabz');
-    this.profileService.getProfileInfo().subscribe(profile => this.profile = profile);
-    this.profileService.getProfileRepos().subscribe(repos =>  this.repos = repos);
+     this.getSearchedUser('Bnabz');
 
   }
 

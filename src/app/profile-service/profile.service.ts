@@ -19,11 +19,12 @@ export class ProfileService {
   searchUsername(username:string) {
     interface ApiResponse {
        login: string,
+        name: string,
        avatar_url: string,
        location: string,
        html_url: string,
        followers: number,
-       followig: number,
+       following: number,
       public_repos: number,
        created_at: Date,
 

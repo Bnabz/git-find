@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
 import { TimeSincePipe } from './time-since.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {RoutingModule} from './routing/routing.module'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule,
+    RoutingModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

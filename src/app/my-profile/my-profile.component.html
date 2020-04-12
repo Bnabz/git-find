@@ -1,25 +1,69 @@
+<div class="container">
 
-<p>{{user.followers}} </p>
-<p>{{user.public_repos}}</p>
-<p>{{user.public_repos}}</p>
-<div class="row">
-   <div class=" card-columns">
-       <div *ngFor="let repo of repos">
-           <div class="card m-4 " appHighlight>
-               <div class=" text-center card-header">
-                   <h2>{{repo.name}}</h2>
-               </div>
-               <br>
-               <br>
-               <div class="card-body ">
-                   <p class="desc">{{repo.description}}</p>
-                   <p>Created on: {{repo.created_at | date}}</p>
-               </div>
-               <a href="{{repo.html_url}}" class="text-align-center" target="_blank"
-                   class="m-3 btn btn-outline-info card-footer">View this project on github</a>
+  <div class="card shadow-hover shadow" >
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ user.avatar_url }}" class="img-fluid" alt="me" />
+      </div>
+      <div class="col-md-8">
+        <div class="stats">
+          <span class="badge badge-primary mr-1">
+            {{ user.public_repos }} Public Repos</span
+          >
+        
+          <span class="badge badge-success mr-1">
+            {{ user.followers }} Followers</span
+          >
+          <span class="badge badge-danger mr-1">
+            {{ user.following }} Following</span
+          >
+        </div>
+        <br />
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Username:</strong>{{ user.login }}
+          </li>
+          <li class="list-group-item">
+            <strong>Location:</strong>{{ user.location }}
+          </li>
+          <li class="list-group-item">
+            <strong>Email:</strong>{{ user.email }}
+          </li>
+          <li class="list-group-item">
+            <strong>Blog:</strong>{{ user.blog }}
+          </li>
+          <li class="list-group-item">
+            <strong>Member Since: </strong>{{ user.created_at }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <br />
+    <a href="{{ user.html_url }}" class="btn btn-primary">View On Github</a>
+  </div>
+</div>
 
-           </div>
-       </div>
-   </div>
 
+  <div class="row">
+     <div class=" card-columns">
+         <div *ngFor="let repo of repos">
+             <div class="card m-4 " appHighlight>
+                 <div class=" text-center card-header">
+                     <h2>{{repo.name}}</h2>
+                 </div>
+                 <br>
+                 <br>
+                 <div class="card-body ">
+                     <p class="desc">{{repo.description}}</p>
+                     <p>Created on: {{repo.created_at | date}}</p>
+                 </div>
+                 <a href="{{repo.html_url}}" class="text-align-center" target="_blank"
+                     class="m-3 btn btn-outline-info card-footer">View this project on github</a>
+
+             </div>
+         </div>
+     </div>
+
+  </div>
 </div>

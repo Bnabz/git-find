@@ -21,7 +21,7 @@ export class ProfileService {
        login: string,
        avatar_url: string,
        location: string,
-       url: string,
+       html_url: string,
        followers: number,
        followig: number,
       public_repos: number,

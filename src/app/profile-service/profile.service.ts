@@ -52,7 +52,7 @@ export class ProfileService {
        language: string,
        forks:number,
        watchers:number
-       updated_on: Date
+       updated_at: Date
       }
 
      let promise = new Promise((resolve, reject) => {

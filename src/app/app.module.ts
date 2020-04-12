@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
+import { TimeSincePipe } from './time-since.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyProfileComponent,
     NavbarComponent,
-    HighlightDirective
+    HighlightDirective,
+    TimeSincePipe
   ],
   imports: [
     BrowserModule,

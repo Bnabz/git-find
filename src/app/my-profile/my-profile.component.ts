@@ -10,7 +10,7 @@ import { Repository } from '../repository';
 })
 export class MyProfileComponent implements OnInit {
  user:User;
- repos:Repository[];
+ repos:Repository;
 
 
 /*  constructor(private profileService:ProfileService){
@@ -31,7 +31,6 @@ export class MyProfileComponent implements OnInit {
       this.profileService.searchUsername(username).then(
      (success) => {
       this.user = this.profileService.newUser;
-      console.log(this.user)
      },
      (error) => {
       console.log(error);
@@ -40,7 +39,8 @@ export class MyProfileComponent implements OnInit {
 
       this.profileService.getUserRepos(username).then(
      (success) => {
-      this.repo = this.profileService.userRepo;
+      this.repos = this.profileService.userRepo;
+        console.log(this.repos)
      },
      (error) => {
       console.log(error);

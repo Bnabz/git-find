@@ -47,7 +47,7 @@ export class ProfileService {
       interface ApiResponse {
        name: string,
        description: string,
-       url: string,
+       html_url: string,
        language: string,
        forks:number,
        watchers:number

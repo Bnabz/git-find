@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
 import { TimeSincePipe } from './time-since.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TimeSincePipe } from './time-since.pipe';
     MyProfileComponent,
     NavbarComponent,
     HighlightDirective,
-    TimeSincePipe
+    TimeSincePipe,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

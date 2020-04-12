@@ -62,15 +62,16 @@
                  <br>
                  <br>
                  <div class="card-body ">
+                   <p><b>Language:</b> {{repo.language}}</p>
                      <p>{{repo.description}}</p>
-                     <p>Created on: {{repo.created_at | date}}</p>
+                     <p><b>Created on:</b> {{repo.created_at | date}}</p>
                  </div>
                  <a href="{{repo.html_url}}" class="text-align-center" target="_blank"
                      class="m-3 btn btn-outline-info card-footer">View this project on github</a>
 
                      <div class="card-footer">
-                       <p>Watchers: {{repo.watchers}} Forks: {{repo.forks}}</p>
-                       <p>Last updated: {{repo.updated_at|timeSince}}</p>
+                       <p><b>Watchers:</b> {{repo.watchers}} Forks: {{repo.forks}}</p>
+                       <p><b>Last updated:</b> {{repo.updated_at|timeSince}}</p>
 
                    </div>
 

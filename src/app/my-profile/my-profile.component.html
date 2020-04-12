@@ -19,7 +19,7 @@
 
         <ul class="list-group">
           <li class="list-group-item">
-            <strong>Username:</strong>{{ user.login }}
+            <strong >Username:</strong><span appHighlight>{{ user.login }}</span>
           </li>
           <li class="list-group-item">
             <strong>Name:</strong>{{ user.name }}
@@ -53,7 +53,7 @@
   <div class="row">
      <div class=" card-columns">
          <div *ngFor="let repo of repos">
-             <div class="card m-4 " appHighlight>
+             <div class="card m-4 ">
                  <div class=" text-center card-header">
                      <h2>{{repo.name}}</h2>
                  </div>

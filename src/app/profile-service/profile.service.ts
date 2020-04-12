@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient }from '@angular/common/http';
 import {environment } from '../../environments/environment';
 import { User } from '../user';
+import { Repository } from '../repository';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
    newUser: User;
+   userRepo:Repository;
    private token = environment.token;
 
     constructor(private http:HttpClient) {
@@ -24,12 +26,12 @@ export class ProfileService {
        followig: number,
       public_repos: number,
        created_at: Date,
+
     }
 
      let promise = new Promise((resolve, reject) => {
       this.http.get<ApiResponse>(`https://api.github.com/users/${username}?access_token=${this.token}`).toPromise().then(
         (results) => {
-          //console.log(results)
              this.newUser = results;
           resolve();
         },
@@ -40,6 +42,32 @@ export class ProfileService {
     });
      return promise
   }
+
+  getUserRepos(username:string) {
+      interface ApiResponse {
+       name: string,
+       description: string,
+       url: string,
+       language: string,
+       forks:number,
+       watchers:number
+       updated_on: Date
+      }
+
+     let promise = new Promise((resolve, reject) => {
+      this.http.get<ApiResponse>(`https://api.github.com/users/${username}/repos?access_token=${this.token}`).toPromise().then(
+        (results) => {
+             this.userRepo = results;
+          resolve();
+        },
+        (error) => {
+          reject();
+        }
+      );
+    });
+     return promise
+  }
+
 }
 
 

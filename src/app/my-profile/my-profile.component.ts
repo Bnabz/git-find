@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService }from '../profile-service/profile.service';
 import { User } from '../user';
+import { Repository } from '../repository';
 
 @Component({
   selector: 'app-my-profile',
@@ -9,6 +10,7 @@ import { User } from '../user';
 })
 export class MyProfileComponent implements OnInit {
  user:User;
+ repos:Repository[];
 
 
 /*  constructor(private profileService:ProfileService){
@@ -30,6 +32,15 @@ export class MyProfileComponent implements OnInit {
      (success) => {
       this.user = this.profileService.newUser;
       console.log(this.user)
+     },
+     (error) => {
+      console.log(error);
+    }
+      );
+
+      this.profileService.getUserRepos(username).then(
+     (success) => {
+      this.repo = this.profileService.userRepo;
      },
      (error) => {
       console.log(error);

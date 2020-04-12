@@ -5,7 +5,7 @@ export class Repository {
             public url: string,
             public language: string,
             public forks:number,
-            public watchers:number
+            public watchers:number,
             public updated_on: Date) {}
 
 }

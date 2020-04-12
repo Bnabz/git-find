@@ -1,5 +1,13 @@
 <div class="container">
 
+  <form #searchUser="ngForm" (ngSubmit)="submitUser()">
+    <div class="form-group" style="display: flex">
+      <input type="text" class="form-control" name = "username"[(ngModel)]="searchedUser" placeholder="Search github username" style ="border-color: #000" rows="10"required>
+    </div>
+     <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+
   <div class="card shadow-hover shadow" >
   <div class="card-body">
     <div class="row">

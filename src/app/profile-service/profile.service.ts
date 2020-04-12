@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient }from '@angular/common/http';
 import {environment } from '../../environments/environment';
+import { User } from '../user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-
+   newUser: User;
    private token = environment.token;
-  private username:string;
 
- 
     constructor(private http:HttpClient) {
-    //this.username = "Bnabz";
+
   }
 
-  searchMyUser(searchTerm: string) {
-    // tslint:disable-next-line:class-name
-    interface data {
+  searchUsername(username:string) {
+    interface ApiResponse {
        login: string,
        avatar_url: string,
        location: string,
@@ -28,11 +26,11 @@ export class ProfileService {
        created_at: Date,
     }
 
-    return new Promise((resolve, reject) => {
-      this.user = [];
-      this.http.get<data>(this._URL + searchTerm + this.token).toPromise().then(
+     let promise = new Promise((resolve, reject) => {
+      this.http.get<ApiResponse>(`https://api.github.com/users/${username}?access_token=${this.token}`).toPromise().then(
         (results) => {
-          this.user.push(results);
+          //console.log(results)
+             this.newUser = results;
           resolve();
         },
         (error) => {
@@ -40,6 +38,7 @@ export class ProfileService {
         }
       );
     });
+     return promise
   }
 }
 

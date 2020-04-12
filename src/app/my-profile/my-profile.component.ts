@@ -8,7 +8,8 @@ import { User } from '../user';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
- user: User[];
+ user:User;
+
 
 /*  constructor(private profileService:ProfileService){
   this.profileService.updateProfile(this.username);
@@ -20,12 +21,15 @@ export class MyProfileComponent implements OnInit {
    });
 
  }*/
+   constructor(private profileService:ProfileService){
 
-  getSearchedUser(searchTerm) {
-      this.service.searchMyUser(searchTerm).then(
+   }
+
+  getByUser(username) {
+      this.profileService.searchUsername(username).then(
      (success) => {
-      this.user = this.service.user;
-      console.log(this.user);
+      this.user = this.profileService.newUser;
+      console.log(this.user)
      },
      (error) => {
       console.log(error);
@@ -36,7 +40,7 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-     this.getSearchedUser('Bnabz');
+     this.getByUser("Bnabz");
 
   }
 

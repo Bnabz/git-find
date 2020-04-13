@@ -10,7 +10,7 @@ import { Repository } from '../repository';
 export class ProfileService {
    newUser: User;
    userRepo:Repository;
-   newRepo:Repository;
+   newRepo:any;
    private token = environment.token;
 
     constructor(private http:HttpClient) {

@@ -10,7 +10,7 @@ import { Repository } from '../repository';
 })
 export class MyProfileComponent implements OnInit {
  user:User;
- repos:Repository;
+ repos:any;
  searchedUser:string;
 
    constructor(private profileService:ProfileService){ }

@@ -9,7 +9,7 @@ import { Repository } from '../repository';
   styleUrls: ['./repo-search.component.css']
 })
 export class RepoSearchComponent implements OnInit {
-  repos:Repository;
+  repos:[];
   searchedRepo:string;
 
   constructor(private profileService:ProfileService){ }
@@ -31,7 +31,7 @@ export class RepoSearchComponent implements OnInit {
     this.getByRepo(this.searchedRepo);
   }
   ngOnInit(): void {
-    
+
   }
 
 }

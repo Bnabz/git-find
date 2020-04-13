@@ -103,6 +103,11 @@ export class ProfileService {
 
 
 
+
+
+
+
+
 // `https://api.github.com/repositories/${reponame}?access_token=${this.token}`
 
 // `https://api.github.com/search/repositories?q=${data}&per_page=1000`
@@ -125,7 +130,3 @@ export class ProfileService {
   }
 
 }*/
-//092ac5ce8ff7c9ab18fa2cd7e9404d3829104402
-//Client ID: Iv1.ca62bfff5ab5f94f
-//Client secret: 6cbf4042e7336ee6bfca47a4f0988a70e90ccd9c
-//Private key 1f:90:21:12:34:24:17:12:8c:1f:d3:20:b9:6f:27:ed:3c:33:15:47

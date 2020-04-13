@@ -9,7 +9,7 @@ import { Repository } from '../repository';
   styleUrls: ['./repo-search.component.css']
 })
 export class RepoSearchComponent implements OnInit {
-  repos:[];
+  repos:any;
   searchedRepo:string;
 
   constructor(private profileService:ProfileService){ }

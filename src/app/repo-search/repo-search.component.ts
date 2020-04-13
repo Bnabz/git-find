@@ -1,0 +1,20 @@
+import { Component, OnInit } from '@angular/core';
+import { ProfileService }from '../profile-service/profile.service';
+import { User } from '../user';
+import { Repository } from '../repository';
+
+@Component({
+  selector: 'app-repo-search',
+  templateUrl: './repo-search.component.html',
+  styleUrls: ['./repo-search.component.css']
+})
+export class RepoSearchComponent implements OnInit {
+  repos:Repository;
+  searchedUser:string;
+
+  constructor(private profileService:ProfileService){ }
+
+  ngOnInit(): void {
+  }
+
+}

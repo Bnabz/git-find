@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
 import { TimeSincePipe } from './time-since.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {RoutingModule} from './routing/routing.module'
+import {RoutingModule} from './routing/routing.module';
+import { RepoSearchComponent } from './repo-search/repo-search.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {RoutingModule} from './routing/routing.module'
     NavbarComponent,
     HighlightDirective,
     TimeSincePipe,
-    NotFoundComponent
+    NotFoundComponent,
+    RepoSearchComponent
   ],
   imports: [
     BrowserModule,

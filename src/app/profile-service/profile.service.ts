@@ -10,6 +10,7 @@ import { Repository } from '../repository';
 export class ProfileService {
    newUser: User;
    userRepo:Repository;
+   newRepo:Repository;
    private token = environment.token;
 
     constructor(private http:HttpClient) {
@@ -69,6 +70,31 @@ export class ProfileService {
      return promise
   }
 
+  getRepoList(reponame:string) {
+      interface ApiResponse {
+       name: string,
+       description: string,
+       html_url: string,
+       language: string,
+       forks:number,
+       watchers:number
+       updated_at: Date
+      }
+
+     let promise = new Promise((resolve, reject) => {
+      this.http.get<ApiResponse>(`https://api.github.com/search/repositories?q=${reponame}&per_page=1000 access_token=${this.token}`).toPromise().then(
+        (results) => {
+             this.newRepo = results;
+          resolve();
+        },
+        (error) => {
+          reject();
+        }
+      );
+    });
+     return promise
+  }
+
 }
 
 
@@ -77,12 +103,12 @@ export class ProfileService {
 
 
 
+// `https://api.github.com/repositories/${reponame}?access_token=${this.token}`
+
+// `https://api.github.com/search/repositories?q=${data}&per_page=1000`
 
 
-
-
-
-
+// "https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}"
 
 
   /*  getProfileInfo(){

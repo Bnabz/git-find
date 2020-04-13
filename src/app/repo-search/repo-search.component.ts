@@ -10,11 +10,28 @@ import { Repository } from '../repository';
 })
 export class RepoSearchComponent implements OnInit {
   repos:Repository;
-  searchedUser:string;
+  searchedRepo:string;
 
   constructor(private profileService:ProfileService){ }
 
+
+  getByRepo(reponame) {
+    this.profileService.getRepoList(reponame).then(
+   (success) => {
+    this.repos = this.profileService.newRepo.items;
+      console.log(this.repos)
+   },
+   (error) => {
+    console.log(error);
+  }
+    );
+  }
+
+  submitRepo(){
+    this.getByRepo(this.searchedRepo);
+  }
   ngOnInit(): void {
+    
   }
 
 }

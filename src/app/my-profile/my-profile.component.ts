@@ -13,20 +13,7 @@ export class MyProfileComponent implements OnInit {
  repos:Repository;
  searchedUser:string;
 
-
-/*  constructor(private profileService:ProfileService){
-  this.profileService.updateProfile(this.username);
-  this.profileService.getProfileInfo().subscribe(profile => {
-    this.profile = profile;
-  });
-  this.profileService.getProfileRepos().subscribe(repos => {
-     this.repos = repos;
-   });
-
- }*/
-   constructor(private profileService:ProfileService){
-
-   }
+   constructor(private profileService:ProfileService){ }
 
   getByUser(username) {
       this.profileService.searchUsername(username).then(
